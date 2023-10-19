@@ -32,22 +32,37 @@ public class Banco {
     /**
      * Cliente cadastrado.
      */
+    private List<Cliente> clientes;
     private Cliente cliente;
 
     public Banco() {
 
         this.produtos = new ArrayList<>();
         this.pedidos = new ArrayList<>();
-        this.cliente = new Cliente();
+
+        this.clientes = new ArrayList<>();
+        clientes.add(new Cliente("Nero", "12345011"));
+        clientes.add(new Cliente("Gonzales", "23456011"));
+        clientes.add(new Cliente("Lugano", "5678011"));
 
         this.cupons = new ArrayList<>();
         cupons.add(new Cupom("CUPOM2", 2));
         cupons.add(new Cupom("CUPOM5", 5));
         cupons.add(new Cupom("CUPOM7", 7));
+
+        this.cliente = new Cliente("", "");
     }
 
     public Cliente getCliente() {
         return cliente;
+    }
+
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
+    }
+
+    public Cliente[] getClientes() {
+        return clientes.toArray(new Cliente[clientes.size()]);
     }
 
     public Cupom[] getCupons() {
@@ -77,4 +92,13 @@ public class Banco {
     public void removerPedido(int posicao) {
         pedidos.remove(posicao);
     }
+
+    public void adicionarCliente(Cliente cliente) {
+        clientes.add(cliente);
+    }
+
+    public void removerCliente(Cliente cliente) {
+        clientes.remove(cliente);
+    }
+
 }

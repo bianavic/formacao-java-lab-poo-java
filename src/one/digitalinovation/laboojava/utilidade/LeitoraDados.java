@@ -2,10 +2,11 @@ package one.digitalinovation.laboojava.utilidade;
 
 import one.digitalinovation.laboojava.basedados.Banco;
 import one.digitalinovation.laboojava.entidade.Caderno;
-import one.digitalinovation.laboojava.entidade.Pedido;
-import one.digitalinovation.laboojava.entidade.Livro;
-import one.digitalinovation.laboojava.entidade.Produto;
+import one.digitalinovation.laboojava.entidade.Cliente;
 import one.digitalinovation.laboojava.entidade.Cupom;
+import one.digitalinovation.laboojava.entidade.Livro;
+import one.digitalinovation.laboojava.entidade.Pedido;
+import one.digitalinovation.laboojava.entidade.Produto;
 import one.digitalinovation.laboojava.entidade.constantes.Genero;
 import one.digitalinovation.laboojava.entidade.constantes.Materia;
 import one.digitalinovation.laboojava.negocio.ProdutoNegocio;
@@ -99,7 +100,7 @@ public final class LeitoraDados {
 			System.out.println("Digite o código do produto(livro/Caderno)");
 			String codigo = lerDado();
 
-			Optional<Produto> resultado = produtoNegocio.consultar(codigo);
+			Optional<Produto> resultado = produtoNegocio.consultarProduto(codigo);
 			if (resultado.isPresent()) {
 
 				Produto produto = resultado.get();
@@ -137,6 +138,21 @@ public final class LeitoraDados {
 		}
 
 		return Optional.empty();
+	}
+
+	public static Cliente lerCliente() {
+		System.out.println("Cadastrando cliente...");
+		Cliente cliente = new Cliente("", "");
+
+		System.out.println("Digite o nome: ");
+		String nome = lerDado();
+		cliente.setNome(nome);
+
+		System.out.println("Digite o número do CPF: ");
+		String cpf = lerDado();
+		cliente.setCpf(cpf);
+
+		return cliente;
 	}
 
 }
