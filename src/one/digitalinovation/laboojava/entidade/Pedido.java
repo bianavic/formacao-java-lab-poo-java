@@ -2,6 +2,7 @@ package one.digitalinovation.laboojava.entidade;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 /**
  * Classe que representa a entidade pedido, qual é a compra dos produtos por um cliente.
@@ -64,6 +65,19 @@ public class Pedido {
         produtos.append("]");
 
         return produtos.toString();
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Pedido pedido = (Pedido) o;
+        return Objects.equals(codigo, pedido.codigo) && Objects.equals(cliente, pedido.cliente) && Objects.equals(produtos, pedido.produtos);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(codigo, cliente, produtos);
     }
 
     // toString pq iremos exibir os pedidos

@@ -1,5 +1,7 @@
 package one.digitalinovation.laboojava.entidade;
 
+import java.util.Objects;
+
 /**
  * Classe que representa a abstração dos produtos que podem ser vendidos pela loja.
  */
@@ -44,6 +46,19 @@ public abstract class Produto {
 
     public void setQuantidade(int quantidade) {
         this.quantidade = quantidade;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Produto produto = (Produto) o;
+        return Objects.equals(codigo, produto.codigo);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(codigo);
     }
 
     /**

@@ -42,6 +42,9 @@ public class ClienteNegocio {
      * @param cliente Novo cliente que terá acesso a aplicação
      */
     //TODO Fazer a inclusão de cliente
+    private void salvar(Cliente cliente) {
+
+    }
 
     /**
      * Exclui um cliente específico.

@@ -1,5 +1,7 @@
 package one.digitalinovation.laboojava.entidade;
 
+import java.util.Objects;
+
 /**
  * Classe que representa a entidade cupom. Este pode ser utilizado no ato do fechamento do pedido
  * para obter um desconto, caso desejado.
@@ -40,6 +42,19 @@ public class Cupom {
 
     public void setDesconto(int desconto) {
         this.desconto = desconto;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Cupom cupom = (Cupom) o;
+        return Objects.equals(codigo, cupom.codigo);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(codigo);
     }
 
 }
