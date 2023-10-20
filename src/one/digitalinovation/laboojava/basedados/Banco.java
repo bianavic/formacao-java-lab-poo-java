@@ -1,7 +1,9 @@
 package one.digitalinovation.laboojava.basedados;
 
+import one.digitalinovation.laboojava.entidade.Caderno;
 import one.digitalinovation.laboojava.entidade.Cliente;
 import one.digitalinovation.laboojava.entidade.Cupom;
+import one.digitalinovation.laboojava.entidade.Livro;
 import one.digitalinovation.laboojava.entidade.Pedido;
 import one.digitalinovation.laboojava.entidade.Produto;
 
@@ -34,11 +36,16 @@ public class Banco {
      */
     private List<Cliente> clientes;
     private Cliente cliente;
+    private List<Livro> livros;
+    private List<Caderno> cadernos;
 
     public Banco() {
 
         this.produtos = new ArrayList<>();
         this.pedidos = new ArrayList<>();
+
+        this.livros = new ArrayList<>();
+        this.cadernos = new ArrayList<>();
 
         this.clientes = new ArrayList<>();
         clientes.add(new Cliente("Nero", "12345011"));

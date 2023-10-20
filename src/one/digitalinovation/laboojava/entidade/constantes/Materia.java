@@ -9,7 +9,7 @@ public enum Materia {
     private double fator;
 
     Materia(double fator) {
-        this.fator = fator;
+        this.fator = fator / 10;
     }
 
     public double getFator() {

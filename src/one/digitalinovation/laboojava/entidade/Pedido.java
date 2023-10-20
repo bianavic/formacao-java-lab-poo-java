@@ -57,7 +57,7 @@ public class Pedido {
         StringBuilder produtos = new StringBuilder();
         produtos.append("[");
         for (Produto produto : getProdutos()) {
-            produtos.append(produtos.toString());
+            produtos.append(produto.toString());
             produtos.append(" Qtdd: ");
             produtos.append(produto.getQuantidade());
             produtos.append(" ");
@@ -67,25 +67,12 @@ public class Pedido {
         return produtos.toString();
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Pedido pedido = (Pedido) o;
-        return Objects.equals(codigo, pedido.codigo) && Objects.equals(cliente, pedido.cliente) && Objects.equals(produtos, pedido.produtos);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(codigo, cliente, produtos);
-    }
-
     // toString pq iremos exibir os pedidos
     @Override
     public String toString() {
         return "Pedido{" +
                 "codigo='" + codigo + '\'' +
-                ", cliente=" + cliente +
+                ", cliente=" + cliente.getNome() +
                 ", produtos=" + getProdutosComprados() +
                 ", total=" + total +
                 '}';
