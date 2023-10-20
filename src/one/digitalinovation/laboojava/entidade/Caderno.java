@@ -19,4 +19,13 @@ public class Caderno extends Produto {
         return (getPreco() * getQuantidade()) * (1 + tipo.getFator());
     }
 
+    @Override
+    public String toString() {
+        return "Caderno{" +
+                "tipo=" + tipo +
+                ", codigo='" + getCodigo() + '\'' +
+                ", preço='" + getPreco() + '\'' +
+                '}';
+    }
+
 }
