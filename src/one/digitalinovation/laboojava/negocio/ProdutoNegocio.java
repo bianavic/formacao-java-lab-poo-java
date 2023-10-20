@@ -1,6 +1,7 @@
 package one.digitalinovation.laboojava.negocio;
 
 import one.digitalinovation.laboojava.basedados.Banco;
+import one.digitalinovation.laboojava.entidade.Caderno;
 import one.digitalinovation.laboojava.entidade.Livro;
 import one.digitalinovation.laboojava.entidade.Produto;
 
@@ -105,6 +106,23 @@ public class ProdutoNegocio {
 
         }
         System.out.println("Não existe livro cadastrado com esse nome");
+    }
+
+    public void consultarCadernoPeloTipo(String tipo) {
+
+
+        for (Produto produto : bancoDados.getProdutos()) {
+
+            if (produto instanceof Caderno) {
+                Caderno caderno = (Caderno) produto;
+                if (caderno.getTipo().toString().equalsIgnoreCase(tipo)) {
+                    System.out.println(caderno.toString());
+                    return;
+                }
+            }
+
+        }
+        System.out.println("Não existe caderno cadastrado com esse tipo");
     }
 
     /**
